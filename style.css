@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /********************** ROOT VARIABLES **********************/
-:root {
+body {
     --color-primary: #7380ec;
     --color-danger: #ff7782;
     --color-success: #41f1b6;
@@ -14,6 +14,7 @@
     --color-primary-variant: #111e88;
     --color-dark-variant: #677483;
     --color-background: #f6f6f9;
+    --color-background1: rgb(234,234,248);
     --nav-toggle-background-gray: rgb(207,207,214);
     
     --card-border-radius: 2rem;
@@ -44,6 +45,8 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--color-background);
+    color: var(--color-dark);
+    -webkit-font-smoothing: antialiased;
 }
 
 ul {
@@ -59,18 +62,49 @@ img {
     height: auto;
 }
 
+body.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-background1: #181a1e;
+    --color-white: #202528 !important;
+    --color-dark: #edeffd !important;
+    --color-dark-variant: #a3bdcc !important;
+    --color-light: rgba(0,0,0,.4) !important;
+    --box-shadow: 0 1rem 1rem var(--color-light) !important;
+}
+
 .container {
     padding-right: var(--container-padding);
     padding-left: var(--container-padding);
 }
-.color-primary {
-    background-color: var(--color-primary) !important;
-}
 .color-white {
     color: var(--color-white) !important;
 }
+.color-warning {
+    color: var(--color-warning);
+}
+.color-primary {
+    color: var(--color-primary);
+}
+.color-primary-variant {
+    color: var(--color-primary-variant);
+}
+.color-success {
+    color: var(--color-success);
+}
 .color-danger {
     color: var(--color-danger);
+}
+.color-primary-bg {
+    background-color: var(--color-primary) !important;
+}
+.color-danger-bg {
+    background-color: var(--color-danger) !important;
+}
+.color-success-bg {
+    background-color: var(--color-success) !important;
+}
+.section__title {
+    margin-bottom: .6rem;
 }
 
 /*********************** NAVBAR ***********************/
@@ -90,6 +124,7 @@ img {
     height: var(--header-height);
     justify-content: space-between;
     box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
     z-index: var(--nav-menu-index);
 }
 .nav__profile-theme-toggle {
@@ -109,7 +144,7 @@ img {
 .nav__theme-toggle {
     position: relative;
     column-gap: 0;
-    background-color: rgb(234,234,248);
+    background-color: var(--color-background1);
     border-radius: .3rem;
 }
 .nav__light-theme-toggle,
@@ -239,14 +274,19 @@ img {
 
 /*************************** HOME ***************************/
 
-.home {
-    margin-top: calc(var(--header-height) + 2.5rem);
+.dashboard {
+    padding-top: calc(var(--header-height) + 2.5rem);
+    padding-bottom: var(--header-height);
+}
+.dashboard__container {
+    display: grid;
+    row-gap: 3rem;
 }
 .dashboard__title {
     margin-bottom: .5rem;
 }
 .dashboard input {
-    margin-bottom: .7rem;
+    margin-bottom: .8rem;
 }
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -260,11 +300,16 @@ input[type="date" i] {
     color: var(--color-dark);
     background-color: rgb(234,234,248);
     border: none;
-    padding: .1rem 1.1rem;
+    padding: .2rem 1.1rem;
     border-radius: .3rem;
+    width: fit-content;
 }
 input[type="date" i]:focus {
     outline: 2px solid var(--color-primary);
+}
+.dashboard__stats {
+    display: grid;
+    row-gap: .8rem;
 }
 .dashboard__card {
     background-color: var(--color-white);
@@ -273,7 +318,11 @@ input[type="date" i]:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--color-dark);
+    box-shadow: 0 1rem 1rem rgba(132,139,200,.18);
+    transition: .25s;
+}
+.dashboard__card:hover {
+    box-shadow: 0 1.5rem 1.5rem rgba(27, 36, 117, 0.18);
 }
 .dashboard__card-donut-graph {
     position: relative;
@@ -289,12 +338,18 @@ input[type="date" i]:focus {
     stroke-width: 14;
     stroke-linecap: round;
     transform: translate(5px,5px);
-    stroke-dasharray: 110;
-    stroke-dashoffset: 92;
 }
 .dashboard__card-sales svg circle{
-    stroke-dashoffset: -30;
     stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+.dashboard__card-expenses svg circle {
+    stroke-dasharray: 120;
+    stroke-dashoffset: 160;
+}
+.dashboard__card-income svg circle {
+    stroke-dasharray: 90;
+    stroke-dashoffset: 90;
 }
 .dashboard__card-graph-percent {
     position: absolute;
@@ -306,7 +361,6 @@ input[type="date" i]:focus {
 .dashboard__card-icon-container {
     width: fit-content;
     padding: .5rem;
-    background-color: var(--color-primary);
     border-radius: 50%;
     margin-bottom: 1.2rem;
 }
@@ -327,4 +381,179 @@ input[type="date" i]:focus {
 .dashboard__card-updated-date {
     font-size: .65rem;
     color: var(--color-info-dark)
+}
+
+/********************** RECENT ORDERS **********************/
+
+.ro__table-header-product-name,
+.ro__table-product-details,
+.ro__table-product-name {
+    display: none;
+}
+.ro__container {
+    padding: var(--card-padding);    
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-3);
+    box-shadow: 0 1rem 1rem rgba(132,139,200,.18);
+    transition: .3s;
+}
+.ro__container:hover {
+    box-shadow: 0 1.5rem 1.5rem rgba(27, 36, 117, 0.18);
+}
+.ro__table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.ro__table-header,
+.ro__table td {
+    font-size: .72rem;
+}
+.ro__table-header {
+    font-weight: 600;
+    height: 1.6rem;
+}
+.ro__table-body td {
+    border-bottom: 1px solid var(--color-info-light);
+    height: 2.6rem;    
+}
+.ro__table-product-row:nth-last-of-type(1) td {
+    border: none;
+}
+.ro__show-all-link {
+    font-size: .75rem;
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0 auto;
+    color: var(--color-primary);
+    padding: .3rem;
+    transition: .25s;
+}
+.ro__show-all-link:hover {
+    color: #545eba;
+}
+
+/**************************** RECENT UPDATES ****************************/
+
+.ru__container {
+    display: grid;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-3);
+    padding: var(--card-padding);
+    row-gap: .8rem;
+    box-shadow: 0 1rem 1rem rgba(132,139,200,.18);
+    transition: .3s;
+}
+.ru__container:hover {
+    box-shadow: 0 1.5rem 1.5rem rgba(92, 101, 184, 0.18);
+}
+.ru__content {
+    display: flex;
+    column-gap: .8rem;
+}
+.ru__profile-img-container {
+    flex-basis: 15%;
+    height: 100%;
+}
+.ru__profile-img {
+    border-radius: 50%;
+}
+.ru__content-text {
+    flex-basis: 85%;
+    font-size: .72rem;
+}
+.ru__content-text p {
+    margin-bottom: .3rem;
+}
+.ru__content-text span {
+    font-size: .6rem;
+    color: var(--color-dark-variant)
+}
+
+/************************* SALES ANALYTICS *************************/
+
+.sa__container {
+    display: grid;
+    row-gap: .7rem;
+}
+.sa__content,
+.sa__link {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    padding-right: var(--card-padding);
+    padding-left: var(--card-padding);
+    box-shadow: 0 1rem 1rem rgba(132,139,200,.18);
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    font-size: .72rem;
+    transition: .3s;
+}
+.sa__content:hover,
+.sa__link:hover {
+    box-shadow: 0 1.5rem 1.5rem rgba(92, 101, 184, 0.18);
+}
+.sa__content-icon-container {
+    width: 35.53px;
+    height: 35.53px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: .7rem;
+}
+.sa__content-icon {
+    font-size: 1rem;
+    color: var(--color-white);
+}
+.sa__content-title {
+    font-weight: 800;
+}
+.sa__content-time {
+    font-size: .6rem;
+    color: var(--color-dark-variant);
+    margin-top: .3rem;
+}
+.sa__content-percent {
+    font-size: .67rem;
+    margin-left: auto;
+}
+.sa__content-order-number {
+    margin-left: auto;
+}
+.sa__link {
+    position: relative;
+    height: 3.6rem;
+    background-color: transparent;
+    outline: 2px dashed var(--color-primary);
+    outline-offset: -2px;
+    justify-content: center;
+    color: var(--color-primary);
+    column-gap: .6rem;
+    font-size: .76rem;
+    font-weight: 600;
+    overflow-x: hidden;
+}
+.sa__link span {
+    display: inline-block;
+    margin-bottom: .5px;
+    font-size: 1.3rem;
+}
+.sa__link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-2);
+    background-color: var(--color-primary);
+    z-index: -1;
+    transition: .3s;
+}
+.sa__link:hover {
+    color: var(--color-white);
+}
+.sa__link:hover::before {
+    left: 0;
 }

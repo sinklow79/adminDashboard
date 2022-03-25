@@ -18,6 +18,7 @@ lightToggle.addEventListener("click", () => {
         lightToggle.classList.add("color-white");
     }
     navThemeToggleBackground.style.left = "0";
+    document.body.classList.remove("dark-theme-variables");
 })
 darkToggle.addEventListener("click", () => {
     if (!darkToggle.classList.contains("color-white")){
@@ -25,4 +26,5 @@ darkToggle.addEventListener("click", () => {
         darkToggle.classList.add("color-white");
     }
     navThemeToggleBackground.style.left = "50%";
+    document.body.classList.add("dark-theme-variables");
 })

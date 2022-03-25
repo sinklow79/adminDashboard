@@ -21,7 +21,7 @@
             <div class="nav__menu" id="nav-menu">
                 <div class="nav__menu-top">
                     <a href="index.html" class="nav__logo" id="nav-logo">
-                        <img src="/images/logo.png" alt="" class="nav__logo-img">
+                        <img src="images/logo.png" alt="" class="nav__logo-img">
                         <span class="nav__logo-text">
                             EGA<span class="color-danger">TOR</span>
                         </span>
@@ -169,7 +169,7 @@
             </div>
             <div class="nav__profile-theme-toggle">
                 <div class="nav__theme-toggle">
-                    <div class="nav__theme-toggle-background  color-primary" id="nav-theme-toggle-background"></div>
+                    <div class="nav__theme-toggle-background  color-primary-bg" id="nav-theme-toggle-background"></div>
                     <div class="nav__light-theme-toggle color-white" id="light-toggle">
                         <span class="material-icons-sharp nav__theme-toggle-icon">
                             light_mode
@@ -193,7 +193,7 @@
                         </p>
                     </div>
                     <div class="nav__profile-img">
-                        <img src="/images/profile-1.jpg" alt="" class="profile__img">
+                        <img src="images/profile-1.jpg" alt="" class="profile__img">
                     </div>
                 </div>
             </div>
@@ -203,46 +203,385 @@
     <!------------------------- HOME ------------------------->
     
     <main class="main">
-        <section class="home">
-            <div class="home__container container">
-                <div class="dashboard">
+        <section class="dashboard">            
+            <div class="dashboard__container container">
+
+                <!--------------- DASHBOARD STATS --------------->
+
+                <section class="dashboard__stats">
                     <h1 class="dashboard__title">
                         Dashboard
                     </h1>
                     <input type="date" id="date" name="idk"
-                    value="mm / dd / yyyy" min="2022-03-24" max="2025-07-09">
-                    <div class="dashboard__grid">
-                        <article class="dashboard__card dashboard__card-sales">
-                            <div class="dashboard__card-info">
-                                <div class="dashboard__card-icon-container">
-                                    <span class="material-icons-sharp dashboard__card-icon">
-                                        analytics
-                                    </span>
-                                </div>
-                                <h1 class="dashboard__card-title">
-                                    Total sales
-                                </h1>
-                                <div class="dashboard__card-numbers">
-                                    $25,024
-                                </div>
-                                <div class="dashboard__card-updated-date">
-                                    Last 24 hours
-                                </div>
+                    value="mm / dd / yyyy" min="2022-03-24" max="2025-07-09">  
+                    <article class="dashboard__card dashboard__card-sales">
+                        <div class="dashboard__card-info">
+                            <div class="dashboard__card-icon-container color-primary-bg">
+                                <span class="material-icons-sharp dashboard__card-icon">
+                                    analytics
+                                </span>
                             </div>
-                            <div class="dashboard__card-donut-graph">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                    <span class="dashboard__card-graph-percent">
-                                        81%
-                                    </span>
-                                </svg>
+                            <h1 class="dashboard__card-title">
+                                Total sales
+                            </h1>
+                            <div class="dashboard__card-numbers">
+                                $25,024
                             </div>
-                        </article>
+                            <div class="dashboard__card-updated-date">
+                                Last 24 hours
+                            </div>
+                        </div>
+                        <div class="dashboard__card-donut-graph">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <span class="dashboard__card-graph-percent">
+                                81%
+                            </span>
+                        </div>
+                    </article>
+                    <article class="dashboard__card dashboard__card-expenses">
+                        <div class="dashboard__card-info">
+                            <div class="dashboard__card-icon-container color-danger-bg">
+                                <span class="material-icons-sharp dashboard__card-icon">
+                                    bar_chart
+                                </span>
+                            </div>
+                            <h1 class="dashboard__card-title">
+                                Total expenses
+                            </h1>
+                            <div class="dashboard__card-numbers">
+                                $14,160
+                            </div>
+                            <div class="dashboard__card-updated-date">
+                                Last 24 hours
+                            </div>
+                        </div>
+                        <div class="dashboard__card-donut-graph">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <span class="dashboard__card-graph-percent">
+                                62%
+                            </span>
+                        </div>
+                    </article>
+                    <article class="dashboard__card dashboard__card-income">
+                        <div class="dashboard__card-info">
+                            <div class="dashboard__card-icon-container color-success-bg">
+                                <span class="material-icons-sharp dashboard__card-icon">
+                                    stacked_line_chart
+                                </span>
+                            </div>
+                            <h1 class="dashboard__card-title">
+                                Total income
+                            </h1>
+                            <div class="dashboard__card-numbers">
+                                $10,024
+                            </div>
+                            <div class="dashboard__card-updated-date">
+                                Last 24 hours
+                            </div>
+                        </div>
+                        <div class="dashboard__card-donut-graph">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <span class="dashboard__card-graph-percent">
+                                44%
+                            </span>
+                        </div>
+                    </article>
+                </section>
+
+                <!---------------- RECENT ORDERS ---------------->
+
+                <section class="recent__orders">
+                    <h1 class="section__title">
+                        Recent orders
+                    </h1>
+                    <div class="ro__container">
+                        <table class="ro__table">
+                            <thead class="ro__table-head">
+                                <tr>
+                                    <th class="ro__table-header ro__table-header-product-name">Product name</th>
+                                    <th class="ro__table-header">Product number</th>
+                                    <th class="ro__table-header">Payment</th>
+                                    <th class="ro__table-header">Status</th>
+                                    <th class="ro__table-header"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="ro__table-body">
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      Foldable Mini Drone
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        85631
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Due
+                                    </td>
+                                    <td class="ro__table-product-status color-warning">
+                                        Pending
+                                    </td>
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      LAVENDER KF102 Drone
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        36378
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Refunded
+                                    </td>
+                                    <td class="ro__table-product-status color-danger">
+                                        Declined
+                                    </td>
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      Ruko F11 Pro Drone
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        49347
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Due
+                                    </td>
+                                    <td class="ro__table-product-status color-warning">
+                                        Pending
+                                    </td>
+                                    <td class="ro__table-product-details ">
+                                        <a href="#" class="ro__table-product-details color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      CDW Drone
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        96996
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Paid
+                                    </td>
+                                    <td class="ro__table-product-status color-primary">
+                                        Delivered
+                                    </td>
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      GPS 4k Drone
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        22821
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Paid
+                                    </td>
+                                    <td class="ro__table-product-status color-primary">
+                                        Delivered
+                                    </td>
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      DJI Air 2s
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        81475
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Due
+                                    </td>
+                                    <td class="ro__table-product-status color-warning">
+                                        Pending
+                                    </td>
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="ro__table-product-row">
+                                    <td class="ro__table-product-name">
+                                      Lozenge Drone
+                                    </td>
+                                    <td class="ro__table-product-number">
+                                        00482
+                                    </td>
+                                    <td class="ro__table-product-payment">
+                                        Paid
+                                    </td>
+                                    <td class="ro__table-product-status color-primary">
+                                        Delivered
+                                    </td>
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
+                    <a href="#" class="ro__show-all-link">
+                        Show all
+                    </a>
+                </section>
+
+                <!----------------- RECENT UPDATES ----------------->
+
+                <section class="recent__updates">
+                    <h1 class="section__title">
+                        Recent updates
+                    </h1>
+                    <div class="ru__container">
+                        <div class="ru__content">
+                            <div class="ru__profile-img-container">
+                                <img src="images/profile-2.jpg" alt="" class="ru__profile-img">
+                            </div>
+                            <div class="ru__content-text">
+                                <p>
+                                    <b>Mike Tyson</b> received his order of Night lion tech GPS drone.  
+                                </p>
+                                <span>
+                                    2 minutes ago
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ru__content">
+                            <div class="ru__profile-img-container">
+                                <img src="images/profile-3.jpg" alt="" class="ru__profile-img">
+                            </div>
+                            <div class="ru__content-text">
+                                <p>
+                                    <b>Diana Ayi</b> declined her order of 2 DJI Air 2S.  
+                                </p>
+                                <span>
+                                    5 minutes ago
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ru__content">
+                            <div class="ru__profile-img-container">
+                                <img src="images/profile-4.jpg" alt="" class="ru__profile-img">
+                            </div>
+                            <div class="ru__content-text">
+                                <p>
+                                    <b>Mandy Roy</b> received her order of Lavender Kf102 Drone.  
+                                </p>
+                                <span>
+                                    30 minutes ago
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!------------------- SALES ANALYTICS ------------------->
+
+                <section class="sales__analytics">
+                    <h1 class="section__title">
+                        Sales analytics
+                    </h1>
+                    <div class="sa__container">
+                        <div class="sa__content">
+                            <div class="sa__content-icon-container color-primary-bg">
+                                <span class="material-icons-sharp sa__content-icon">
+                                    shopping_cart
+                                </span>
+                            </div>
+                            <div class="sa__content-head">
+                                <p class="sa__content-title">
+                                    ONLINE ORDERS
+                                </p>
+                                <p class="sa__content-time">
+                                    Last 24 hours
+                                </p>
+                            </div>
+                            <p class="color-success sa__content-percent">
+                                <b>+39%</b>
+                            </p>
+                            <p class="sa__content-order-number">
+                                <b>3849</b>
+                            </p>
+                        </div>
+                        <div class="sa__content">
+                            <div class="sa__content-icon-container color-danger-bg">
+                                <span class="material-icons-sharp sa__content-icon">
+                                    local_mall
+                                </span>
+                            </div>
+                            <div class="sa__content-head">
+                                <p class="sa__content-title">
+                                    OFFLINE ORDERS
+                                </p>
+                                <p class="sa__content-time">
+                                    Last 24 hours
+                                </p>
+                            </div>
+                            <p class="color-danger sa__content-percent">
+                                <b>-17%</b>
+                            </p>
+                            <p class="sa__content-order-number">
+                                <b>1100</b>
+                            </p>
+                        </div>
+                        <div class="sa__content">
+                            <div class="sa__content-icon-container color-success-bg">
+                                <span class="material-icons-sharp sa__content-icon">
+                                    person
+                                </span>
+                            </div>
+                            <div class="sa__content-head">
+                                <p class="sa__content-title">
+                                    NEW CUSTOMER
+                                </p>
+                                <p class="sa__content-time">
+                                    Last 24 hours
+                                </p>
+                            </div>
+                            <p class="color-success sa__content-percent">
+                                <b>+25%</b>
+                            </p>
+                            <p class="sa__content-order-number">
+                                <b>849</b>
+                            </p>
+                        </div>
+                        <a href="#" class="sa__link">
+                            <span class="material-icons-sharp">
+                                add
+                            </span> Add product
+                        </a>
+                    </div>
+                </section>
             </div>
         </section>
-        <div style="height: 1000px"></div>
+        
     </main>
     <script type="text/javascript" src="script.js"></script>
 </body>
