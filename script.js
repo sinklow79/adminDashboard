@@ -13,18 +13,10 @@ navCloseBtn.addEventListener("click", () => {
     navMenu.style.left = "-100%";
 })
 lightToggle.addEventListener("click", () => {
-    if (!lightToggle.classList.contains("color-white")){
-        darkToggle.classList.remove("color-white");
-        lightToggle.classList.add("color-white");
-    }
     navThemeToggleBackground.style.left = "0";
     document.body.classList.remove("dark-theme-variables");
 })
 darkToggle.addEventListener("click", () => {
-    if (!darkToggle.classList.contains("color-white")){
-        lightToggle.classList.remove("color-white");
-        darkToggle.classList.add("color-white");
-    }
     navThemeToggleBackground.style.left = "50%";
     document.body.classList.add("dark-theme-variables");
 })

@@ -170,12 +170,12 @@
             <div class="nav__profile-theme-toggle">
                 <div class="nav__theme-toggle">
                     <div class="nav__theme-toggle-background  color-primary-bg" id="nav-theme-toggle-background"></div>
-                    <div class="nav__light-theme-toggle color-white" id="light-toggle">
+                    <div class="nav__light-theme-toggle" id="light-toggle">
                         <span class="material-icons-sharp nav__theme-toggle-icon">
                             light_mode
                         </span>
                     </div>
-                    <div class="nav__dark-theme-toggle" id="dark-toggle">
+                    <div class="color-dark nav__dark-theme-toggle" id="dark-toggle">
                         <span class="material-icons-sharp nav__theme-toggle-icon">
                             dark_mode
                         </span>
@@ -203,17 +203,19 @@
     <!------------------------- HOME ------------------------->
     
     <main class="main">
-        <section class="dashboard">            
+        <section class="dashboard">  
+            <div class="container dashboard__title-container">
+                <h1 class="dashboard__title">
+                    Dashboard
+                </h1>
+                <input type="date" id="date" name="idk"
+                value="mm/dd/yyyy" min="2022-03-24" max="2025-07-09">  
+            </div>          
             <div class="dashboard__container container">
 
                 <!--------------- DASHBOARD STATS --------------->
 
-                <section class="dashboard__stats">
-                    <h1 class="dashboard__title">
-                        Dashboard
-                    </h1>
-                    <input type="date" id="date" name="idk"
-                    value="mm / dd / yyyy" min="2022-03-24" max="2025-07-09">  
+                <section class="dashboard__stats">                    
                     <article class="dashboard__card dashboard__card-sales">
                         <div class="dashboard__card-info">
                             <div class="dashboard__card-icon-container color-primary-bg">
@@ -232,12 +234,20 @@
                             </div>
                         </div>
                         <div class="dashboard__card-donut-graph">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="dc__donut-graph-circle-bg"
+                                  d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <path class="dc__donut-graph-circle stroke-primary"
+                                  stroke-dasharray="82, 100"
+                                  d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <text x="18" y="19.5" class="dc__donut-graph-percentage">82%</text>
                             </svg>
-                            <span class="dashboard__card-graph-percent">
-                                81%
-                            </span>
                         </div>
                     </article>
                     <article class="dashboard__card dashboard__card-expenses">
@@ -258,12 +268,20 @@
                             </div>
                         </div>
                         <div class="dashboard__card-donut-graph">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="dc__donut-graph-circle-bg"
+                                  d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <path class="dc__donut-graph-circle stroke-danger"
+                                  stroke-dasharray="62, 100"
+                                  d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <text x="18" y="19.5" class="dc__donut-graph-percentage">62%</text>
                             </svg>
-                            <span class="dashboard__card-graph-percent">
-                                62%
-                            </span>
                         </div>
                     </article>
                     <article class="dashboard__card dashboard__card-income">
@@ -284,12 +302,20 @@
                             </div>
                         </div>
                         <div class="dashboard__card-donut-graph">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="dc__donut-graph-circle-bg"
+                                  d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <path class="dc__donut-graph-circle stroke-success"
+                                  stroke-dasharray="44, 100"
+                                  d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <text x="18" y="19.5" class="dc__donut-graph-percentage">44%</text>
                             </svg>
-                            <span class="dashboard__card-graph-percent">
-                                44%
-                            </span>
                         </div>
                     </article>
                 </section>
@@ -363,8 +389,8 @@
                                     <td class="ro__table-product-status color-warning">
                                         Pending
                                     </td>
-                                    <td class="ro__table-product-details ">
-                                        <a href="#" class="ro__table-product-details color-primary">
+                                    <td class="ro__table-product-details">
+                                        <a href="#" class="ro__table-product-details-link color-primary"">
                                             Details
                                         </a>
                                     </td>
@@ -452,132 +478,133 @@
                         Show all
                     </a>
                 </section>
-
-                <!----------------- RECENT UPDATES ----------------->
-
-                <section class="recent__updates">
-                    <h1 class="section__title">
-                        Recent updates
-                    </h1>
-                    <div class="ru__container">
-                        <div class="ru__content">
-                            <div class="ru__profile-img-container">
-                                <img src="images/profile-2.jpg" alt="" class="ru__profile-img">
+                <section class="right">
+                    <!----------------- RECENT UPDATES ----------------->
+    
+                    <section class="recent__updates">
+                        <h1 class="section__title">
+                            Recent updates
+                        </h1>
+                        <div class="ru__container">
+                            <div class="ru__content">
+                                <div class="ru__profile-img-container">
+                                    <img src="images/profile-2.jpg" alt="" class="ru__profile-img">
+                                </div>
+                                <div class="ru__content-text">
+                                    <p>
+                                        <b>Mike Tyson</b> received his order of Night lion tech GPS drone.  
+                                    </p>
+                                    <span>
+                                        2 minutes ago
+                                    </span>
+                                </div>
                             </div>
-                            <div class="ru__content-text">
-                                <p>
-                                    <b>Mike Tyson</b> received his order of Night lion tech GPS drone.  
-                                </p>
-                                <span>
-                                    2 minutes ago
-                                </span>
+                            <div class="ru__content">
+                                <div class="ru__profile-img-container">
+                                    <img src="images/profile-3.jpg" alt="" class="ru__profile-img">
+                                </div>
+                                <div class="ru__content-text">
+                                    <p>
+                                        <b>Diana Ayi</b> declined her order of 2 DJI Air 2S.  
+                                    </p>
+                                    <span>
+                                        5 minutes ago
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ru__content">
+                                <div class="ru__profile-img-container">
+                                    <img src="images/profile-4.jpg" alt="" class="ru__profile-img">
+                                </div>
+                                <div class="ru__content-text">
+                                    <p>
+                                        <b>Mandy Roy</b> received her order of Lavender Kf102 Drone.  
+                                    </p>
+                                    <span>
+                                        30 minutes ago
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="ru__content">
-                            <div class="ru__profile-img-container">
-                                <img src="images/profile-3.jpg" alt="" class="ru__profile-img">
-                            </div>
-                            <div class="ru__content-text">
-                                <p>
-                                    <b>Diana Ayi</b> declined her order of 2 DJI Air 2S.  
+                    </section>
+    
+                    <!------------------- SALES ANALYTICS ------------------->
+    
+                    <section class="sales__analytics">
+                        <h1 class="section__title">
+                            Sales analytics
+                        </h1>
+                        <div class="sa__container">
+                            <div class="sa__content">
+                                <div class="sa__content-icon-container color-primary-bg">
+                                    <span class="material-icons-sharp sa__content-icon">
+                                        shopping_cart
+                                    </span>
+                                </div>
+                                <div class="sa__content-head">
+                                    <p class="sa__content-title">
+                                        ONLINE ORDERS
+                                    </p>
+                                    <p class="sa__content-time">
+                                        Last 24 hours
+                                    </p>
+                                </div>
+                                <p class="color-success sa__content-percent">
+                                    <b>+39%</b>
                                 </p>
-                                <span>
-                                    5 minutes ago
-                                </span>
+                                <p class="sa__content-order-number">
+                                    <b>3849</b>
+                                </p>
                             </div>
+                            <div class="sa__content">
+                                <div class="sa__content-icon-container color-danger-bg">
+                                    <span class="material-icons-sharp sa__content-icon">
+                                        local_mall
+                                    </span>
+                                </div>
+                                <div class="sa__content-head">
+                                    <p class="sa__content-title">
+                                        OFFLINE ORDERS
+                                    </p>
+                                    <p class="sa__content-time">
+                                        Last 24 hours
+                                    </p>
+                                </div>
+                                <p class="color-danger sa__content-percent">
+                                    <b>-17%</b>
+                                </p>
+                                <p class="sa__content-order-number">
+                                    <b>1100</b>
+                                </p>
+                            </div>
+                            <div class="sa__content">
+                                <div class="sa__content-icon-container color-success-bg">
+                                    <span class="material-icons-sharp sa__content-icon">
+                                        person
+                                    </span>
+                                </div>
+                                <div class="sa__content-head">
+                                    <p class="sa__content-title">
+                                        NEW CUSTOMER
+                                    </p>
+                                    <p class="sa__content-time">
+                                        Last 24 hours
+                                    </p>
+                                </div>
+                                <p class="color-success sa__content-percent">
+                                    <b>+25%</b>
+                                </p>
+                                <p class="sa__content-order-number">
+                                    <b>849</b>
+                                </p>
+                            </div>
+                            <a href="#" class="sa__link">
+                                <span class="material-icons-sharp">
+                                    add
+                                </span> Add product
+                            </a>
                         </div>
-                        <div class="ru__content">
-                            <div class="ru__profile-img-container">
-                                <img src="images/profile-4.jpg" alt="" class="ru__profile-img">
-                            </div>
-                            <div class="ru__content-text">
-                                <p>
-                                    <b>Mandy Roy</b> received her order of Lavender Kf102 Drone.  
-                                </p>
-                                <span>
-                                    30 minutes ago
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!------------------- SALES ANALYTICS ------------------->
-
-                <section class="sales__analytics">
-                    <h1 class="section__title">
-                        Sales analytics
-                    </h1>
-                    <div class="sa__container">
-                        <div class="sa__content">
-                            <div class="sa__content-icon-container color-primary-bg">
-                                <span class="material-icons-sharp sa__content-icon">
-                                    shopping_cart
-                                </span>
-                            </div>
-                            <div class="sa__content-head">
-                                <p class="sa__content-title">
-                                    ONLINE ORDERS
-                                </p>
-                                <p class="sa__content-time">
-                                    Last 24 hours
-                                </p>
-                            </div>
-                            <p class="color-success sa__content-percent">
-                                <b>+39%</b>
-                            </p>
-                            <p class="sa__content-order-number">
-                                <b>3849</b>
-                            </p>
-                        </div>
-                        <div class="sa__content">
-                            <div class="sa__content-icon-container color-danger-bg">
-                                <span class="material-icons-sharp sa__content-icon">
-                                    local_mall
-                                </span>
-                            </div>
-                            <div class="sa__content-head">
-                                <p class="sa__content-title">
-                                    OFFLINE ORDERS
-                                </p>
-                                <p class="sa__content-time">
-                                    Last 24 hours
-                                </p>
-                            </div>
-                            <p class="color-danger sa__content-percent">
-                                <b>-17%</b>
-                            </p>
-                            <p class="sa__content-order-number">
-                                <b>1100</b>
-                            </p>
-                        </div>
-                        <div class="sa__content">
-                            <div class="sa__content-icon-container color-success-bg">
-                                <span class="material-icons-sharp sa__content-icon">
-                                    person
-                                </span>
-                            </div>
-                            <div class="sa__content-head">
-                                <p class="sa__content-title">
-                                    NEW CUSTOMER
-                                </p>
-                                <p class="sa__content-time">
-                                    Last 24 hours
-                                </p>
-                            </div>
-                            <p class="color-success sa__content-percent">
-                                <b>+25%</b>
-                            </p>
-                            <p class="sa__content-order-number">
-                                <b>849</b>
-                            </p>
-                        </div>
-                        <a href="#" class="sa__link">
-                            <span class="material-icons-sharp">
-                                add
-                            </span> Add product
-                        </a>
-                    </div>
+                    </section>
                 </section>
             </div>
         </section>
